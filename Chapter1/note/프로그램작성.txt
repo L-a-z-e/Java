@@ -1,0 +1,10 @@
+Hi.java -> javac.exe (컴파일) -> Hi.class 생성 -> java.exe (실행) -> "HI" 출력
+한 줄 주석 //
+여러줄 주석  /* */
+main 메서드는 Java Application의 시작점 -> 모든 클래스가 main을 가져야 하는건 아니지만 하나의 Java Application에는 반드시 main을 포함한 클래스가 하나는 있어야한다.
+
+소스파일 (.java) 와 다르게 클래스파일 (.class) 는 클래스마다 만들어지므로
+
+Hi.java에 클래스 Hi, Hello 가 있으면 클래스파일 2개 만들어짐
+Hi 라는 소스파일 이름, public class 이름이 일치해야함
+하나의 소스 파일에 둘 이상의 public class가 존재하면 안됨

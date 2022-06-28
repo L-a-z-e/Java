@@ -1,0 +1,11 @@
+cannot find symbol || cannot resolve symbol -> 지정된 변수, 메서드 찾을 수 없다는 뜻 , 선언되지 않은 변수, 메서드 사용시 혹은 오타있을시 발생
+
+Exception in thread "main" java.lang.NoSuchMethodError: main -> 메인 메서드를 찾을 수 없다는 것 -> main 메서드가 없거나 psvm에 오타가 있는지 확인
+
+Exception in thread "main" java.lang.NoClassDefFoundError: Hi -> Hi라는 클래스 파일을 찾을 수 없다는 뜻, 대소문자 등 오타확인, 클래스파일 유무 확인 -> 있는데도 오류가 난다면 classpath 설정 체크
+
+illegal start of expression -> 문법적 오류, 괄호 열고 닫고, if for문, public static 같은 키워드 잘못 사용시에도 발생
+
+class, interface, or enum expected -> 내용과 다르게 보통 괄호 개수 일치하지 않을 떄 발생
+
+*--- 에러 메세지 발생 시 에러 메세지부터 읽기 ---*
