@@ -1,0 +1,65 @@
+논리형 - boolean
+default - false , value = ture or false
+
+문자형 - char
+문자가 아닌 문자의 유니코드(정수)가 변수에 저장된다.
+ex) char ch = 'A' -> ch = 65
+
+특수문자
+tab \t
+backspace \b
+form feed \f
+new line \n
+carriage return \r
+\  \\
+'   \'
+"   \"
+unicode \u
+
+
+char 타입 표현형식 (2byte)
+값 - 2^16개
+범위 - 0~ 2^16 -1
+
+인코딩 - 디코딩
+
+ASCII ( American Standard Code for Information Interchange )
+7bit, 제어문자+0~9, A~Z, a~z
+
+Extended ASCII
+ASCII에서 1bit 남음
+한글 -> 조합형으로 표현
+지금은 완성형으로 사용
+
+cp (code page)
+각 국가별 코드 페이지에 CP xxx 같은 이름 붙임 ex ) 한글 윈도우 CP949, 영문 윈도우 CP437
+
+Unicode
+서로 다른 인코딩을 사용하는 컴퓨터간의 문서교환이 어려워지자 unicode 사용
+
+UTF-16 : 모든 문자를 2byte의 고정 크기로 표현
+UTF-8 : 하나의 문자를 1~4byte의 가변 크기로 표현
+
+고정 크기 -> 다루기 편함, 문서 크기에서 손해
+가변 크기 -> 전송속도가 중요한 인터넷에서 문서의 크기가 작은것이 유리, 가변크기라 다루기 어렵다는 단점
+
+정수형
+byte short int long
+S : 부호비트
+n : 타입의 크기
+
+정수형 선택 기준 JVM 피연산자 스택(operand stack)이 피연산자를 4byte로 저장하기 때문에
+byte short 계산시 4byte로 변환함 따라서 int를 사용하는것이 효율적
+
+overflow - 표현할 수 있는 값의 범위를 넘어서는 것
+최대값 + 1 => 최소값
+최소값 -1 => 최대값
+
+실수형
+float 정밀도 7, 4byte
+double 정밀도 15, 8byte
+S(Sign) : 부호비트
+E(Exponent) : 지수
+M(Mantissa) : 가수
+
+float타입이 아닌 double을 사용하는 경우는 값의 범위때문이 아니라 보다 높은 정밀도가 필요하기 때문
