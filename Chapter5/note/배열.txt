@@ -1,0 +1,60 @@
+Array (배열)
+ - 같은 타입의 여러 변수를 하나의 묶음으로 다루는 것
+ ( 저장공간이 연속적으로 배치되어있다. )
+
+ 선언
+ 타입[] 변수이름;
+ 타입 변수이름[];
+
+ 생성
+ 타입[] 변수이름;
+ 변수이름 = new 타입[길이];
+
+ int[] score;
+ score = new int[5];
+
+ 단계별로
+ int[] score; -> 데이터를 저장할 공간은 아직 마련 x
+ score = new int[5]; 에서 메모리의 빈 공간에 5개의 int형 데이터를 저장할 수 있는 공간 마련
+
+ 각 배열의 요소는 자동적으로 deafault값으로 초기화된다.
+ 대입 연산자 = 에 의해 배열의 주소가 int형 배열 참조변수 score에 저장된다.
+
+ 배열이름[인덱스] 형식으로 배열의 요소에 접근
+ index는 0~ 길이-1 까지
+
+index 범위를 벗어난 값을 사용하면 ArrayIndexOutOfBoundsException 발생
+
+배열이름.length = 배열은 한번 생성하면 길이를 변경할 수 없기때문에 배열이름.length는 상수다.
+
+배열의 길이 변경하기
+1. 더 큰 배열 생성
+2. 기존 배열의 내용을 새로운 배열에 복사
+
+배열의 초기화
+int[] score = new int[] {50,60,70}; new int[] 생략가능
+단 선언과 생성을 같이하는 경우에만 가능
+int[] score;
+score = {50,60,70} 안됨
+
+배열의 출력
+1) for문 반복 이용하는 법
+2) Arrays.toString()  - 타입@주소 형식으로 출력된다.
+@뒤의 주소는 실제 주소가 아닌 내부 주소
+
+예외적으로 char 배열은 println 메서드로 출력하면 구분자 없이 그대로 출력
+
+배열의 복사
+for문을 이용한 복사
+새 배열 생성 ->  for문을 이용해 하나씩 값 복사
+for ( int i=0 ; i < arr.length ; i++)
+    tmp[i] = arr[i];
+ arr = tmp;
+ 참조변수 arr에 참조변수 tmp 값을 저장
+ 결론적으로 arr과 tmp 는 같은 배열을 가리키게 된다.
+ 이전에 arr이 가리키던 배열은 사용할 수 없다.
+
+ System.arraycopy()를 이용한 복사
+ System.arraycopy(num, 0, newNum, 0, num.length) num[0] 에서 newNum[0]으로 num.length개의 데이터 복사
+
+
