@@ -1,0 +1,27 @@
+한 클래스 내의 같은 이름의 메서드를 여러 개 정의 하는 것을 메서드 오버로딩이라 함
+1. 메서드 이름이 같아야한다.
+2. 매개변수의 개수 또는 타입이 달라야한다. ( 반환 타입은 오버로딩 구현에 영향을 주지 않음 )
+
+오버로딩의 장점
+- 근본적으로 같은 기능을 하는 메서드일때 이름 짓느라 드는 시간 노력을 아낄 수 있음
+
+가변인자(varargs) 오버로딩
+- JDK1.5 부터 매개변수 개수를 동적으로 지정해 줄 수 있게 됨 (variable argument)
+public PrintStream printf(String format, Object... args) {...}
+- 가변인자는 항상 마지막 매개변수여야함.
+
+예시
+concatenate
+String concatenate(String s1, String s2, ... ) -> String concatenate(String... str) 로 대체할 수 있음
+
+가변인자 대신 매개변수에 배열을 사용하면 어떤 차이가 있는지?
+-> 반드시 인자를 지정해줘야하기때문에 인자가 없는경우 null 이나 길이가 0인 배열을 지정해줘야하고 없는경우에는 오류도 출력됨
+String concatenate(String[] str) {...}
+-> String result = concatenate( new String[0]);
+-> String result = concatenate( null );
+
+가변인자를 사용하면 오버로딩된 메서드가 구분되지 않는 경우가 발생하기때문에
+가변인자를 사용한 메서드는 오버로딩하지 않는 것이 좋다.
+ex) concatenates(String ... args)
+    concatenates(String delim, String ... args)
+
