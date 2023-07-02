@@ -1,0 +1,63 @@
+컴파일 에러 - 컴파일 시에 발생
+런타임 에러 - 실행 시에 발생
+논리적 에러 - 실행은 되지만 의도와 다르게 동작
+
+에러 - 프로그램 코드에 의해서 수습될 수 없는 심각한 오류 ( OutOfMemoryError , StackOverflowError)
+예외 - 프로그램 코드에 의해서 수습될 수 있는 오류
+
+모든 예외의 최고 조상은 Exception
+Object > Throwable > Exception , Error
+
+RuntimeException - 주로 프로그래머의 실수에 의해 발생될 수 있는 예외
+    - ArrayIndexOutOfBoundsException
+    - NullPointerException
+    - ClassCastException
+    - ArithmeticException
+
+Exception - 주로 외부 영향으로 발생할 수 있는 것들
+    - FileNotFoundException
+    - ClassNotFoundException
+    - DataFormatException
+
+Exception Handling
+    - 프로그램 실행 시 발생할 수 있는 예외에 대비한 코드 작성
+    - 프로그램의 비정상 종료를 막고, 정상적인 실행상태 유지
+    - 발생한 예외를 처리하지 못하면 JVM 의 예외처리기 UncaughtExceptionHandler 가 예외의 원인을 화면에 출력
+
+printStackTrace() - 예외 발생 당시의 호출스택(Call Stack) 에 있던 메서드의 정보와 예외 메시지를 화면에 출력
+getMessage() - 발생한 예외클래스의 인스턴스에 저장된 메시지를 얻을 수 있다.
+
+catch 블럭에서 | 로 연결된 Exception Class 들 중 상속관계의 클래스가 있다면 컴파일 에러가 발생한다 -> 조상클래스 하나만 쓰는것과 동일하기 때문
+여러개를 동시에 catch 블럭에 적었으면 e is instanceof 예외명 을 통해 분리도 가능하다.
+
+예외 발생시키기
+1. Exception e = new Exception("예외발생시키기")
+2. throw e;
+-> 한줄로 throw new Exception("예외발생");
+
+Exception 이 발생하면 컴파일 에러가 발생하고
+RuntimeException 으로 예외를 발생시키면 컴파일은 되고 실행시에 에러 발생
+
+메서드에 예외 선언하기
+void method() throws Exception1,Exception2, ...
+
+finally : try-catch 이후 예외 발생 여부에 상관없이 실행되어야할 코드
+try, catch 문 안에 return 이 있어도 finally 를 먼저 실행 한 뒤에 메서드를 종료한다.
+
+자원 반환 try - with - resources 문
+
+예를 들어 try catch finally 에서 DataInputStream 이 닫히도록 finally 안에 close() 를 넣어줘도
+finally 블럭 안에서 예외가 발생하는 경우가 있는데 이를 개선하기위해 추가됨
+
+try( DataInputStream dis = new DataInputStream(fis) ; FileInputStream fis = new FileInputStream("score.dat") )
+두문장 이상 넣을 경우 ; 로 구분
+
+사용자정의 예외 Exception Class 상속 받아서 만들 것
+
+예외 되던지기
+    - 예외 처리를 한 후에 인위적으로 예외를 다시 발생시키는 방법을 통해서 할 수는 있다. ( 필요한 경우만 )
+
+연결된 예외 (chained exception)
+    - 예외 A 가 예외 B를 발생시켰을 때
+
+
